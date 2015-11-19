@@ -1,6 +1,7 @@
 package processor;
 
 import pipeline.ConsolePipeline;
+import pipeline.MybatisPipeline;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
@@ -43,7 +44,7 @@ public class StoryProcessor implements PageProcessor{
                 //从开始页面抓
                 .addUrl("http://zangmizhe.com/")
                         //输出到控制台
-                .addPipeline(new ConsolePipeline())
+                .addPipeline(new MybatisPipeline())
                         //开启5个线程抓取
                 .thread(5)
                         //启动爬虫
