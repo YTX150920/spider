@@ -18,7 +18,7 @@
 
     <!-- mapping 文件路径配置 -->
     <mappers>
-        <mapper resource="main/resources/storyMapper.xml"/>
+        <mapper resource="storyMapper.xml"/>
     </mappers>
 
 </configuration>

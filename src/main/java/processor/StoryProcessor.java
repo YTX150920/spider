@@ -21,12 +21,7 @@ public class StoryProcessor implements PageProcessor{
             //skip this page
             page.setSkip(true);
         }
-        page.putField("content", page.getHtml().xpath("//div[@class='article-content entry']")
-                .replace("<p>","")
-                .replace("</p>","")
-                .replace("<div class=\"article-content entry\" style=\"display: block; opacity: 1;\">","")
-                .replace("</div>","")
-                .replace(" ",""));
+        page.putField("content", page.getHtml().xpath("//div[@class='article-content entry']/p/text()"));
         page.putField("post_url", page.getUrl().regex("http://zangmizhe.com/chapter/index/cid-\\d+.html").toString());
 
         // 部分三：从页面发现后续的url地址来抓取

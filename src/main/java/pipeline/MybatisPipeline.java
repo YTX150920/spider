@@ -14,8 +14,6 @@ public class MybatisPipeline implements Pipeline {
     @Override
     public void process(ResultItems resultItems, Task task) {
 
-        System.out.println("+++++");
-
         StoryDao storyDao = new StoryDaoImpl();
 
         Story story = new Story();
@@ -25,18 +23,12 @@ public class MybatisPipeline implements Pipeline {
             System.out.println(entry.getKey() + ":" + entry.getValue());
             if (entry.getKey().equals("title")) {
                 story.setTitle(entry.getValue().toString());
-                System.out.println("==========");
-                System.out.println(entry.getValue().toString());
             } else if (entry.getKey().equals("post_url")) {
                 story.setPost_url(entry.getValue().toString());
             } else if (entry.getKey().equals("content")) {
-                story.setContent(entry.getKey());
+                story.setContent(entry.getValue().toString());
             }
-
         }
-
         storyDao.insert(story);
-        System.out.print("]]]]]]]");
-
     }
 }
