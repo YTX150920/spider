@@ -25,7 +25,7 @@ public class StoryProcessor implements PageProcessor{
         page.putField("post_url", page.getUrl().regex("http://zangmizhe.com/chapter/index/cid-\\d+.html").toString());
 
         // 部分三：从页面发现后续的url地址来抓取
-        page.addTargetRequests(page.getHtml().xpath("//ul[@class='tlist']/li/a").links().regex("(http://zangmizhe.com/chapter/index/cid-\\d+.html)").all());
+        page.addTargetRequests(page.getHtml().links().regex("(http://zangmizhe.com/chapter/index/cid-\\d+.html)").all());
     }
 
     @Override
