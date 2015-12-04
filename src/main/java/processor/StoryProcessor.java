@@ -1,6 +1,5 @@
 package processor;
 
-import pipeline.ConsolePipeline;
 import pipeline.MybatisPipeline;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
@@ -21,7 +20,7 @@ public class StoryProcessor implements PageProcessor{
             //skip this page
             page.setSkip(true);
         }
-        page.putField("content", page.getHtml().xpath("//div[@class='article-content entry']/p/text()"));
+        page.putField("content", page.getHtml().xpath("//div[@class='article-content entry']/allText()"));
         page.putField("post_url", page.getUrl().regex("http://zangmizhe.com/chapter/index/cid-\\d+.html").toString());
 
         // 部分三：从页面发现后续的url地址来抓取
@@ -41,7 +40,7 @@ public class StoryProcessor implements PageProcessor{
                         //输出到控制台
                 .addPipeline(new MybatisPipeline())
                         //开启5个线程抓取
-                .thread(5)
+                .thread(1)
                         //启动爬虫
                 .run();
     }
