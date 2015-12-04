@@ -1,6 +1,9 @@
 # Created by .ignore support plugin (hsz.mobi)
-# ignore
-.idea
-test
 target
 *.iml
+out/
+.idea
+.classpath
+.project
+.settings/
+bin/
